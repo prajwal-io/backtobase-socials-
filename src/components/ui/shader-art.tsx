@@ -59,6 +59,10 @@ function colorOf(element: HTMLElement, value: string) {
   return [...paint.getImageData(0, 0, 1, 1).data].slice(0, 3).map((channel) => channel / 255);
 }
 
+export function getWebGLContext(canvas: HTMLCanvasElement | null): WebGLRenderingContext | null {
+  return canvas?.getContext('webgl', { antialias: false, depth: false, alpha: false }) ?? null;
+}
+
 export function ShaderArt({
   speed = 1,
   intensity = 0.7,
@@ -78,7 +82,7 @@ export function ShaderArt({
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const gl = canvas?.getContext('webgl', { antialias: false, depth: false, alpha: false });
+    const gl = getWebGLContext(canvas);
     if (!canvas || !gl) { setFallback(true); return undefined; }
 
     const compile = (kind: number, source: string) => {

@@ -31,7 +31,7 @@ npm install
 npm run dev
 ```
 
-Open the local URL printed by Vite. Run `npm test` for the sharing-metadata check, then `npm run build` for a production build; output is written to `dist/`. Use `npm run preview` to check that output locally.
+Open the local URL printed by Vite. Run `npm test` for the metadata, content, asset, and WebGL-context checks, then `npm run build` for a production build; output is written to `dist/`. Use `npm run preview` to check that output locally.
 
 ## Vercel
 
@@ -44,4 +44,3 @@ Vercel's production URL system variable supplies full sharing URLs at build time
 This is a JavaScript Vite app with custom CSS. Vite transpiles the shader's TSX file during the build, but the repository does not currently run TypeScript type checks or use Tailwind/shadcn. The component needs only React and its adjacent CSS file to run here; no images, icons, providers, or state package are required.
 
 The existing component path is `src/components/` and the main stylesheet is `src/styles.css`. The `src/components/ui/` folder keeps reusable UI components in the conventional shadcn location without mixing them with page components. To add the full tooling later, install TypeScript (`npm install -D typescript @types/react @types/react-dom`) and create a Vite TS config, install Tailwind (`npm install tailwindcss @tailwindcss/vite`) and add its Vite plugin and CSS import, then run `npx shadcn@latest init` with the component alias pointed at `src/components/ui`. The shader does not depend on Tailwind utility classes.
-
