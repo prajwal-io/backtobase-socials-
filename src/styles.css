@@ -36,11 +36,13 @@ h2 { font-size: 20px; font-weight: 600; letter-spacing: -.03em; }
 .social-card, .video-card { display: flex; align-items: center; gap: 23px; min-height: 112px; padding: 21px 25px; border: 1px solid #d7ddda; background: #fffefa; text-decoration: none; transition: border-color .2s ease, background-color .2s ease, transform .2s ease; }
 .social-card:hover, .video-card:hover { border-color: #13aeb3; background: #fff; transform: translateY(-2px); }
 .social-card:focus-visible, .video-image:focus-visible, .carousel-arrow:focus-visible { outline: 2px solid #87500c; outline-offset: 3px; }
-.platform-mark { display:grid; place-items:center; flex:0 0 38px; width:38px; height:38px; color:#0a66c2; }
+.platform-mark { display:grid; place-items:center; flex:0 0 38px; width:38px; height:38px; border-radius:11px; color:#0a66c2; transition:background-color .2s ease, box-shadow .2s ease; }
 .platform-mark svg { display:block; width:32px; height:32px; }
-.platform-instagram { color:#c13584; }
-.platform-whatsapp { color:#128c7e; }
-.platform-youtube { color:#f00; }
+.platform-linkedin { --platform-tint:rgba(10,102,194,.09); --platform-glow:rgba(10,102,194,.22); }
+.platform-instagram { color:#c13584; --platform-tint:rgba(193,53,132,.09); --platform-glow:rgba(193,53,132,.22); }
+.platform-whatsapp { color:#128c7e; --platform-tint:rgba(18,140,126,.09); --platform-glow:rgba(18,140,126,.22); }
+.platform-youtube { color:#f00; --platform-tint:rgba(255,0,0,.08); --platform-glow:rgba(255,0,0,.2); }
+.social-card:hover .platform-mark, .social-card:focus-visible .platform-mark { background-color:var(--platform-tint); box-shadow:0 0 14px 1px var(--platform-glow); }
 .card-copy { display: grid; gap: 7px; flex: 1; min-width: 0; }
 .card-title, .video-title { display: block; font-size: 21px; font-weight: 620; line-height: 1.15; letter-spacing: -.035em; }
 .card-description, .video-description { display: block; color: #53615f; font-size: 14px; line-height: 1.5; }
@@ -76,6 +78,6 @@ h2 { font-size: 20px; font-weight: 600; letter-spacing: -.03em; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .social-card, .video-card, .carousel-arrow { transition: none; }
+  .social-card, .video-card, .carousel-arrow, .platform-mark { transition: none; }
   .social-card:hover, .video-card:hover { transform: none; }
 }
